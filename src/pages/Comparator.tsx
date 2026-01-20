@@ -253,6 +253,7 @@ export default function Comparator() {
 				</button>
 			</div>
 		</div>
+	</div>
 	);
 }
 
