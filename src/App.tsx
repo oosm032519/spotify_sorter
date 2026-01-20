@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 function App() {
 	return (
 		<BrowserRouter>
-			<div className="min-h-screen bg-zinc-900 text-white flex flex-col items-center justify-center p-4">
+			<div className="h-[100dvh] overflow-hidden bg-zinc-900 text-white flex flex-col items-center justify-center p-4">
 				<Routes>
 					<Route path="/" element={<Login />} />
 					<Route path="/callback" element={<Callback />} />

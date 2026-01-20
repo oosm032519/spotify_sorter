@@ -1,4 +1,4 @@
-import { AlertCircle, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import AudioPlayer from "../components/AudioPlayer";
@@ -211,7 +211,7 @@ export default function Comparator() {
 	if (!currentPair) return <div>Something went wrong. State invalid.</div>;
 
 	return (
-		<div className="w-full max-w-4xl flex flex-col items-center gap-8">
+		<div className="h-full w-full max-w-4xl flex flex-col items-center gap-4">
 			{/* Progress Bar */}
 			<div className="w-full text-center">
 				<div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden mb-2">
@@ -229,25 +229,26 @@ export default function Comparator() {
 
 			<h2 className="text-xl text-zinc-300">Which song do you prefer?</h2>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-				<ChoiceCard
-					track={currentPair.left}
-					onClick={() => handleChoice("left")}
-					shortcut="Left Arrow"
-				/>
-				<ChoiceCard
-					track={currentPair.right}
-					onClick={() => handleChoice("right")}
-					shortcut="Right Arrow"
-				/>
+			<div className="flex-1 min-h-0 w-full flex flex-col md:grid md:grid-cols-2 gap-4">
+				<div className="flex-1 min-h-0 w-full">
+					<ChoiceCard
+						track={currentPair.left}
+						onClick={() => handleChoice("left")}
+						shortcut="Left Arrow"
+					/>
+				</div>
+				<div className="flex-1 min-h-0 w-full">
+					<ChoiceCard
+						track={currentPair.right}
+						onClick={() => handleChoice("right")}
+						shortcut="Right Arrow"
+					/>
+				</div>
 			</div>
 
 			<div className="flex gap-4">
 				<button className="flex items-center gap-2 text-zinc-500 hover:text-zinc-300">
 					<RotateCcw size={16} /> Undo
-				</button>
-				<button className="flex items-center gap-2 text-zinc-500 hover:text-zinc-300">
-					<AlertCircle size={16} /> I can't decide (unavailable)
 				</button>
 			</div>
 		</div>
@@ -266,14 +267,14 @@ function ChoiceCard({
 	return (
 		<div
 			onClick={onClick}
-			className="bg-zinc-800 rounded-xl p-6 flex flex-col items-center gap-4 cursor-pointer hover:bg-zinc-700 hover:scale-105 transition-all group border-2 border-transparent hover:border-green-500/50"
+			className="h-full bg-zinc-800 rounded-xl p-4 md:p-6 flex flex-col items-center gap-4 cursor-pointer hover:bg-zinc-700 active:scale-95 md:hover:scale-105 transition-all group border-2 border-transparent hover:border-green-500/50"
 		>
-			<div className="aspect-square w-full max-w-[250px] bg-zinc-900 rounded-lg overflow-hidden relative shadow-lg">
+			<div className="flex-1 min-h-0 w-full bg-zinc-900 rounded-lg overflow-hidden relative shadow-lg">
 				{track.imageUrl ? (
 					<img
 						src={track.imageUrl}
 						alt={track.name}
-						className="w-full h-full object-cover"
+						className="w-full h-full object-contain"
 					/>
 				) : (
 					<div className="w-full h-full flex items-center justify-center text-zinc-600">
@@ -289,7 +290,7 @@ function ChoiceCard({
 
 			<AudioPlayer track={track} />
 
-			<span className="text-xs bg-zinc-900 px-2 py-1 rounded text-zinc-500 mt-2 border border-zinc-700">
+			<span className="hidden md:inline-block text-xs bg-zinc-900 px-2 py-1 rounded text-zinc-500 mt-2 border border-zinc-700">
 				Press {shortcut}
 			</span>
 		</div>
