@@ -211,7 +211,8 @@ export default function Comparator() {
 	if (!currentPair) return <div>Something went wrong. State invalid.</div>;
 
 	return (
-		<div className="h-full w-full max-w-4xl flex flex-col items-center gap-4">
+		<div className="fixed inset-0 h-[100dvh] w-full flex flex-col items-center justify-center p-4 overflow-hidden">
+			<div className="h-full w-full max-w-4xl flex flex-col items-center gap-4">
 			{/* Progress Bar */}
 			<div className="w-full text-center">
 				<div className="w-full h-2 bg-zinc-800 rounded-full overflow-hidden mb-2">

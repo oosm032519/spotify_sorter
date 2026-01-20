@@ -44,7 +44,7 @@ export default function Dashboard() {
 	}
 
 	return (
-		<div className="w-full max-w-5xl p-6">
+		<div className="w-full max-w-5xl p-6 mx-auto pt-12">
 			<header className="flex justify-between items-center mb-8">
 				<h1 className="text-3xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
 					Select a Playlist
