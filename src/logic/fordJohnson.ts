@@ -357,7 +357,7 @@ function setupNextInsertion(state: AlgorithmState): AlgorithmState {
 
 // Serialization Helpers
 export function serializeState(state: AlgorithmState): string {
-	return JSON.stringify(state, (key, value) => {
+	return JSON.stringify(state, (_key, value) => {
 		if (value instanceof Map) {
 			return {
 				dataType: "Map",
@@ -369,7 +369,7 @@ export function serializeState(state: AlgorithmState): string {
 }
 
 export function deserializeState(json: string): AlgorithmState {
-	return JSON.parse(json, (key, value) => {
+	return JSON.parse(json, (_key, value) => {
 		if (typeof value === "object" && value !== null) {
 			if (value.dataType === "Map") {
 				return new Map(value.value);

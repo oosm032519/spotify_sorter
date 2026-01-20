@@ -41,7 +41,6 @@ export async function getToken(code: string): Promise<string> {
 		}),
 	};
 
-	const parsedBase = new URL(REDIRECT_URI);
 	// If we are redirecting to localhost, we are likely in dev mode.
 	// The token endpoint is https://accounts.spotify.com/api/token
 
